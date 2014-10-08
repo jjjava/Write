@@ -39,8 +39,9 @@ public class CoreFrFind implements Runnable {
         StringTokenizer tokens = new StringTokenizer(text);
         System.out.println(tokens.countTokens());
         for (int k = 0; k < tokens.countTokens(); k++) {
-            if (find.contains(tokens.nextToken())) {
-                System.out.println("Achou");
+            
+            if (find.contains(tokens.nextToken().toString())) {
+                System.out.println("achou"+k);    
             }
         }
         frFind.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
