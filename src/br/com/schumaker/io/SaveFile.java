@@ -22,6 +22,5 @@ public class SaveFile {
         } catch (IOException ex) {
             System.out.println(ex);
         }
-        System.out.println("Arquivo criado.");
     }
 }

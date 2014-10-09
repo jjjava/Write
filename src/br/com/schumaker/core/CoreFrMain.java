@@ -108,7 +108,6 @@ public class CoreFrMain {
             for (String ext : exts) { // check if it already has a valid extension
                 if (nameLower.endsWith('.' + ext.toLowerCase())) {
                     return file; // if yes, return as-is
-                    
                 }
                 break;
             }
