@@ -9,28 +9,28 @@ import java.awt.Font;
  * @since 11/09/2014
  */
 public class FrMain extends javax.swing.JFrame {
-    
+
     public FrMain() {
         this.initComponents();
         this.setLocationRelativeTo(null);
     }
-    
+
     public String getTextFromPane() {
         return jTextPane.getText();
     }
-    
+
     public void setTextToPane(String text) {
         jTextPane.setText(text);
     }
-    
+
     public Font getFontTextPane() {
         return jTextPane.getFont();
     }
-    
+
     public void setFontTextPane(Font f) {
         jTextPane.setFont(f);
     }
-    
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -39,6 +39,7 @@ public class FrMain extends javax.swing.JFrame {
         jTextPane = new javax.swing.JTextPane();
         jMenuBar1 = new javax.swing.JMenuBar();
         mFile = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
         mSave = new javax.swing.JMenuItem();
         mClose = new javax.swing.JMenuItem();
         mEdit = new javax.swing.JMenu();
@@ -59,6 +60,15 @@ public class FrMain extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jTextPane);
 
         mFile.setText("Arquivo");
+
+        jMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_A, java.awt.event.InputEvent.CTRL_MASK));
+        jMenuItem1.setText("Abrir");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        mFile.add(jMenuItem1);
 
         mSave.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.CTRL_MASK));
         mSave.setText("Salvar");
@@ -143,37 +153,41 @@ public class FrMain extends javax.swing.JFrame {
     private void mCloseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mCloseActionPerformed
         CoreFrMain.getInstance().Exit();
     }//GEN-LAST:event_mCloseActionPerformed
-    
+
     private void mControlZActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mControlZActionPerformed
         CoreFrMain.getInstance().controlZ();
     }//GEN-LAST:event_mControlZActionPerformed
-    
+
     private void mControlYActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mControlYActionPerformed
         CoreFrMain.getInstance().controlY();
     }//GEN-LAST:event_mControlYActionPerformed
-    
+
     private void jTextPaneKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextPaneKeyPressed
         if (!evt.isControlDown()) {
             CoreFrMain.getInstance().keep();
         }
     }//GEN-LAST:event_jTextPaneKeyPressed
-    
+
     private void mSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mSaveActionPerformed
-        // TODO add your handling code here:
+        CoreFrMain.getInstance().save();
     }//GEN-LAST:event_mSaveActionPerformed
-    
+
     private void mFontActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mFontActionPerformed
         FrFont frFont = new FrFont(this);
         frFont.setVisible(true);
     }//GEN-LAST:event_mFontActionPerformed
-    
+
     private void mFindActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mFindActionPerformed
-        
         FrFind frFind = new FrFind();
         frFind.setVisible(true);
     }//GEN-LAST:event_mFindActionPerformed
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        CoreFrMain.getInstance().open();
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextPane jTextPane;
     private javax.swing.JMenuItem mClose;
