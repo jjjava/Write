@@ -112,7 +112,6 @@ public class CoreFrMain {
     }
 
     public void open(String path) {
-        System.out.println(path);
         frMain.setTextToPane(ReadFile.loadFile(path));
     }
 
