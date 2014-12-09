@@ -3,7 +3,7 @@ package br.com.schumaker.core;
 import br.com.schumaker.entity.Originator;
 import br.com.schumaker.entity.TextStateCare;
 import br.com.schumaker.gfx.FrMain;
-import br.com.schumaker.io.SaveFile;
+import br.com.schumaker.io.WriteFile;
 import java.io.File;
 import java.util.ArrayList;
 import javax.swing.JFileChooser;
@@ -91,7 +91,7 @@ public class CoreFrMain {
 
         int sf = chooser.showSaveDialog(null);
         if (sf == JFileChooser.APPROVE_OPTION) {
-            SaveFile.createFile(getSelectedFileWithExtension(chooser), CoreFrMain.getInstance().getText());
+            WriteFile.createFile(getSelectedFileWithExtension(chooser), CoreFrMain.getInstance().getText());
         }
         FileFilterWritePool.getInstance().release(fnef0);
         FileFilterWritePool.getInstance().release(fnef1);

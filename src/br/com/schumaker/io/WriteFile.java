@@ -4,12 +4,13 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author Hudson Schumaker
  */
-public class SaveFile {
+public class WriteFile {
 
     public static void createFile(File f, String content) {
         try {
@@ -20,7 +21,7 @@ public class SaveFile {
             buffer.flush();
             buffer.close();
         } catch (IOException ex) {
-            System.out.println(ex);
+            JOptionPane.showMessageDialog(null, "Erro ao gravar Arquivo:\n" + ex, "Erro.", JOptionPane.ERROR_MESSAGE);
         }
     }
 }
