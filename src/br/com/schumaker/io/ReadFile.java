@@ -19,7 +19,7 @@ public class ReadFile {
             in = new BufferedReader(new FileReader(file));
             String line;
             while ((line = in.readLine()) != null) {
-                buffer += line;
+                buffer += line+"\n";
             }
             in.close();
         } catch (IOException ex) {

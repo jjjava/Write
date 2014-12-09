@@ -5,17 +5,14 @@ import br.com.schumaker.entity.TextStateCare;
 import br.com.schumaker.gfx.FrMain;
 import br.com.schumaker.io.ReadFile;
 import br.com.schumaker.io.WriteFile;
-import java.awt.Image;
 import java.io.File;
-import java.io.IOException;
 import java.util.ArrayList;
-import javax.imageio.ImageIO;
 import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
 /**
  * @author Hudson Schumaker
- * @version 1.0.0
+ * @version 1.0.1
  * @since 11/09/2014 Usando padrão Singleton (Lazy)
  */
 public class CoreFrMain {
