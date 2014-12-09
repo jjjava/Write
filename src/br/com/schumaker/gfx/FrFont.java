@@ -1,6 +1,9 @@
 package br.com.schumaker.gfx;
 
 import java.awt.Font;
+import java.awt.GraphicsEnvironment;
+import java.util.ArrayList;
+import javax.swing.ComboBoxModel;
 
 /**
  * @author Hudson Schumaker
@@ -11,6 +14,21 @@ public class FrFont extends javax.swing.JFrame {
 
     private FrMain frMain;
     private Font lastFont;
+    private static ArrayList<Font> fonts = new ArrayList<>();
+    private static String aFonts[];
+
+    static {
+        GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
+        for (Font font : ge.getAllFonts()) {
+            if (font.canDisplayUpTo(font.getName()) != 0) {
+                fonts.add(font);
+            }
+        }
+        aFonts = new String[fonts.size()];
+        for (int k = 0; k < fonts.size(); k++) {
+            aFonts[k] = fonts.get(k).getName();
+        }
+    }
 
     public FrFont(FrMain frMain) {
         this.frMain = frMain;
@@ -38,7 +56,7 @@ public class FrFont extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        fCombo = new javax.swing.JComboBox();
+        fCombo = new javax.swing.JComboBox(aFonts);
         jLabel2 = new javax.swing.JLabel();
         sSize = new javax.swing.JSlider();
         btApply = new javax.swing.JButton();
@@ -50,7 +68,6 @@ public class FrFont extends javax.swing.JFrame {
 
         jLabel1.setText("Fontes:");
 
-        fCombo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Arial", "Verdana", "Calibri", "Courier" }));
         fCombo.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 fComboItemStateChanged(evt);
@@ -129,24 +146,20 @@ public class FrFont extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btApplyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btApplyActionPerformed
-
         this.setUpFont();
         this.dispose();
     }//GEN-LAST:event_btApplyActionPerformed
 
     private void btCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCancelActionPerformed
-
         frMain.setFontTextPane(lastFont);
         this.dispose();
     }//GEN-LAST:event_btCancelActionPerformed
 
     private void fComboItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_fComboItemStateChanged
         setUpFont();
-
     }//GEN-LAST:event_fComboItemStateChanged
 
     private void sSizeStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_sSizeStateChanged
-
         setUpFont();
     }//GEN-LAST:event_sSizeStateChanged
     // Variables declaration - do not modify//GEN-BEGIN:variables
