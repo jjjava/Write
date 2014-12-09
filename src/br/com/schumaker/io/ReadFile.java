@@ -30,17 +30,17 @@ public class ReadFile {
 
     public static String loadFile(String path) {
         BufferedReader in;
-        String buffer = "";
+        StringBuilder buffer = new StringBuilder();
         try {
             in = new BufferedReader(new FileReader(path));
             String line;
             while ((line = in.readLine()) != null) {
-                buffer += line + "\n";
+                buffer.append("\n").append(line);
             }
             in.close();
         } catch (IOException ex) {
             JOptionPane.showMessageDialog(null, "Erro ao ler Arquivo:\n" + ex, "Erro.", JOptionPane.ERROR_MESSAGE);
         }
-        return buffer;
+        return buffer.toString();
     }
 }

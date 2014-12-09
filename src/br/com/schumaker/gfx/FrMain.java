@@ -23,6 +23,12 @@ public class FrMain extends javax.swing.JFrame {
         getjTextPane().setText(text);
     }
 
+    public void appendtextToPane(String text) {
+        String aux = getTextFromPane();
+        aux += "\n" + text;
+        setTextToPane(aux);
+    }
+
     public Font getFontTextPane() {
         return getjTextPane().getFont();
     }
