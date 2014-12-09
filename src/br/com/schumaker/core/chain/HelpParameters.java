@@ -18,8 +18,7 @@ public class HelpParameters implements Chain {
         if (params.length == 1 && (params[0].equalsIgnoreCase("-h") || params[0].equalsIgnoreCase("-help"))) {
             System.out.println("*** O programa aceita 0 e 1 parametros ***");
             System.out.println("-0 parametros: programa executa e abre em branco.");
-            System.out.println("-1 parametro: path de uma imagem, programa exibe a imagem.");
-            System.out.println("-1 parametros: path de um diretorio, programa exibe as imagem do mesmo.");
+            System.out.println("-1 parametro: path de um arquivo texto, programa abre o arquivo.");
         } else {
             nextInChain.executeProgram(params);
         }
