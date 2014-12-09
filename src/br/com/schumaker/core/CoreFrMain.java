@@ -111,6 +111,11 @@ public class CoreFrMain {
         }
     }
 
+    public void open(String path) {
+        System.out.println(path);
+        frMain.setTextToPane(ReadFile.loadFile(path));
+    }
+
     private File getSelectedFileWithExtension(JFileChooser c) {
         File file = c.getSelectedFile();
         if (c.getFileFilter() instanceof FileNameExtensionFilter) {
@@ -130,8 +135,10 @@ public class CoreFrMain {
     public void print() {
         try {
             frMain.getjTextPane().print();
+
         } catch (PrinterException ex) {
-            Logger.getLogger(CoreFrMain.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(CoreFrMain.class
+                    .getName()).log(Level.SEVERE, null, ex);
         }
     }
 }

@@ -19,7 +19,23 @@ public class ReadFile {
             in = new BufferedReader(new FileReader(file));
             String line;
             while ((line = in.readLine()) != null) {
-                buffer += line+"\n";
+                buffer += line + "\n";
+            }
+            in.close();
+        } catch (IOException ex) {
+            JOptionPane.showMessageDialog(null, "Erro ao ler Arquivo:\n" + ex, "Erro.", JOptionPane.ERROR_MESSAGE);
+        }
+        return buffer;
+    }
+
+    public static String loadFile(String path) {
+        BufferedReader in;
+        String buffer = "";
+        try {
+            in = new BufferedReader(new FileReader(path));
+            String line;
+            while ((line = in.readLine()) != null) {
+                buffer += line + "\n";
             }
             in.close();
         } catch (IOException ex) {
