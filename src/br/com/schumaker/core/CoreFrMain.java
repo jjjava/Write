@@ -5,8 +5,11 @@ import br.com.schumaker.entity.TextStateCare;
 import br.com.schumaker.gfx.FrMain;
 import br.com.schumaker.io.ReadFile;
 import br.com.schumaker.io.WriteFile;
+import java.awt.print.PrinterException;
 import java.io.File;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
@@ -122,5 +125,13 @@ public class CoreFrMain {
             file = new File(file.toString() + '.' + exts[0]);
         }
         return file;
+    }
+
+    public void print() {
+        try {
+            frMain.getjTextPane().print();
+        } catch (PrinterException ex) {
+            Logger.getLogger(CoreFrMain.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 }

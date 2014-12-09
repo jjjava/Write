@@ -16,19 +16,19 @@ public class FrMain extends javax.swing.JFrame {
     }
 
     public String getTextFromPane() {
-        return jTextPane.getText();
+        return getjTextPane().getText();
     }
 
     public void setTextToPane(String text) {
-        jTextPane.setText(text);
+        getjTextPane().setText(text);
     }
 
     public Font getFontTextPane() {
-        return jTextPane.getFont();
+        return getjTextPane().getFont();
     }
 
     public void setFontTextPane(Font f) {
-        jTextPane.setFont(f);
+        getjTextPane().setFont(f);
     }
 
     @SuppressWarnings("unchecked")
@@ -41,6 +41,8 @@ public class FrMain extends javax.swing.JFrame {
         mFile = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
         mSave = new javax.swing.JMenuItem();
+        jMenuItemPrint = new javax.swing.JMenuItem();
+        jSeparator1 = new javax.swing.JPopupMenu.Separator();
         mClose = new javax.swing.JMenuItem();
         mEdit = new javax.swing.JMenu();
         mControlZ = new javax.swing.JMenuItem();
@@ -78,6 +80,16 @@ public class FrMain extends javax.swing.JFrame {
             }
         });
         mFile.add(mSave);
+
+        jMenuItemPrint.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_P, java.awt.event.InputEvent.CTRL_MASK));
+        jMenuItemPrint.setText("Imprimir");
+        jMenuItemPrint.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemPrintActionPerformed(evt);
+            }
+        });
+        mFile.add(jMenuItemPrint);
+        mFile.add(jSeparator1);
 
         mClose.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F4, java.awt.event.InputEvent.CTRL_MASK));
         mClose.setText("Fechar");
@@ -185,10 +197,17 @@ public class FrMain extends javax.swing.JFrame {
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         CoreFrMain.getInstance().open();
     }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void jMenuItemPrintActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemPrintActionPerformed
+        CoreFrMain.getInstance().print();
+    }//GEN-LAST:event_jMenuItemPrintActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItemPrint;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JPopupMenu.Separator jSeparator1;
     private javax.swing.JTextPane jTextPane;
     private javax.swing.JMenuItem mClose;
     private javax.swing.JMenuItem mControlY;
@@ -200,4 +219,12 @@ public class FrMain extends javax.swing.JFrame {
     private javax.swing.JMenu mFormat;
     private javax.swing.JMenuItem mSave;
     // End of variables declaration//GEN-END:variables
+
+    public javax.swing.JTextPane getjTextPane() {
+        return jTextPane;
+    }
+
+    public void setjTextPane(javax.swing.JTextPane jTextPane) {
+        this.jTextPane = jTextPane;
+    }
 }
