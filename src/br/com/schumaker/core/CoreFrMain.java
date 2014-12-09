@@ -134,7 +134,6 @@ public class CoreFrMain {
     public void print() {
         try {
             frMain.getjTextPane().print();
-
         } catch (PrinterException ex) {
             Logger.getLogger(CoreFrMain.class
                     .getName()).log(Level.SEVERE, null, ex);
